@@ -1,3 +1,10 @@
+/*
+	the files of haoqi a new coder!
+	only using for stuty, there are any errors 
+	or you have ideals.
+	talk about with me please !
+	*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -6,24 +13,24 @@ struct student{
 	char name[20];
 	int gread;
 };
-//ÀûÓÃÁ´±íĞŞ¸Ä³ÉÑ§Éú¹ÜÀíÏµÍ³ 
+//åˆ©ç”¨é“¾è¡¨ä¿®æ”¹æˆå­¦ç”Ÿç®¡ç†ç³»ç»Ÿ 
 struct Node{
 	struct student data;
 	struct Node * next;
 }; 
 
-//´´½¨Á´±í
+//åˆ›å»ºé“¾è¡¨
 struct Node* createList(){
 	struct Node* headNode = (struct Node*)malloc(sizeof(struct Node));
-	//headNode ±ä³É½á¹¹Ìå±äÁ¿
-	//±äÁ¿Ê¹ÓÃÇ°Òª³õÊ¼»¯,Á´±íÒ»°ã¸³ÓèNULL 
-	//headNode->data = 1£»
+	//headNode å˜æˆç»“æ„ä½“å˜é‡
+	//å˜é‡ä½¿ç”¨å‰è¦åˆå§‹åŒ–,é“¾è¡¨ä¸€èˆ¬èµ‹äºˆNULL 
+	//headNode->data = 1ï¼›
 	headNode->next = NULL;
 	
 	return headNode; 
 } 
 
-//´´½¨½Úµã
+//åˆ›å»ºèŠ‚ç‚¹
 struct Node* createNode(struct student  data){
 	struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
 	newNode->data = data;
@@ -32,7 +39,7 @@ struct Node* createNode(struct student  data){
 	return newNode;
 } 
 
-//´òÓ¡Á´±í
+//æ‰“å°é“¾è¡¨
 void printList(struct Node* headNode){
 	struct Node* pMove;
 	pMove = headNode->next;
@@ -45,16 +52,16 @@ void printList(struct Node* headNode){
 	printf("\n");
 } 
 
-//Í·²¿²åÈëÁ´±í
+//å¤´éƒ¨æ’å…¥é“¾è¡¨
 void insertNodeHead(struct Node* headNode,struct student  data){
 	struct Node* newNode = createNode(data);
-	//²åÈë¶ÔÏó 
+	//æ’å…¥å¯¹è±¡ 
 	newNode->next = headNode->next;
 	headNode->next = newNode;
 	
 } 
 
-//Ö¸¶¨Á´±íÎ»ÖÃÉ¾³ı
+//æŒ‡å®šé“¾è¡¨ä½ç½®åˆ é™¤
 void deleteNodeNum(struct Node* headNode,int num){
 	struct Node* posNode = headNode->next;
 	struct Node* posNodeFront = headNode;
@@ -66,17 +73,15 @@ void deleteNodeNum(struct Node* headNode,int num){
 			posNode = posNodeFront->next;
 			if(posNode == NULL){
 				printf("it's NULL ,couldn't delete");
-				//Î´ÕÒµ½£¬·µ»Ø 
+				//æœªæ‰¾åˆ°ï¼Œè¿”å› 
 				return;
 			}
 		}
-		posNodeFront->next = posNode->next; //ÕÒµ½ÁË£¬É¾³ı 
+		posNodeFront->next = posNode->next; //æ‰¾åˆ°äº†ï¼Œåˆ é™¤ 
 		free(posNode);
 	}
 
 } 
-
-
 
 int main()
 {
@@ -91,11 +96,11 @@ int main()
 	//------------------------
 	struct student info;
 	while(1){
-		printf("ÇëÊäÈëÑ§ºÅ£¬ĞÕÃû£¬³É¼¨\n");
+		printf("è¯·è¾“å…¥å­¦å·ï¼Œå§“åï¼Œæˆç»©\n");
 	//	setbuf(stdin,NULL);
 		scanf("%d%s%d",&info.num,info.name,&info.gread);
 		insertNodeHead(list,info);
-		printf("¼ÌĞø£¨y/n£©£¿");
+		printf("ç»§ç»­ï¼ˆy/nï¼‰ï¼Ÿ");
 	//	setbuf(stdin,NULL);
 		int choice = 0; 
 		scanf("%d",&choice);
